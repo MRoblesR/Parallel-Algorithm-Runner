@@ -73,7 +73,6 @@ Before getting started, ensure that you have the following software installed:
      - **Address**: The IP address or hostname of your VM.
      - **Remote Path**: The directory path on the VM where you'll upload your JAR.
      - **Private Key Path**: The path to your private SSH key for authentication.
-     - **Instances Folder**: The folder where your experiment instances will be stored.
 
 4. **Define Your Algorithm**:
    - Implement the `Algorithm` interface.
@@ -86,7 +85,7 @@ Before getting started, ensure that you have the following software installed:
 
 
 6. **Compile, upload, run**:
-   - type the command "just" on the project folder to automatically:
+   - type the command "just run INSTANCES" on the project folder replacing INSTANCES with the name of the folder where your instances are to automatically:
      - Compile your code into a JAR.
      - Use SSH to upload the JAR to your virtual machine with the current timestamp as the folder name.
      - Run the jar on the instances indicated on the parameters.
