@@ -35,7 +35,7 @@ public class IraceAlgorithmRunner implements Runnable {
             logger.log(Level.SEVERE, "Error opening the file:" + instance.getAbsolutePath());
         }
         try {
-            Solution s = algorithm.run();
+            Solution s = algorithm.run(g);
             logger.log(Level.FINE, algorithm.getId() + "::" + instance.getAbsolutePath() + ": Correct end of execution");
             System.out.println(s.evaluateObjectiveFunction()); //This is the input irace would take for taking decisions
 

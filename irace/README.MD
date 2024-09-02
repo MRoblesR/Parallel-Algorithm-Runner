@@ -1,4 +1,4 @@
-This file contains a example/template of files for running irace.
+This file contains a example/template of files for running Irace.
 
 For more detail go to: https://cran.r-project.org/web/packages/irace/vignettes/irace-package.pdf
 

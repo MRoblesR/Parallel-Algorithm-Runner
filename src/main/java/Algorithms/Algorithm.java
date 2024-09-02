@@ -1,5 +1,6 @@
 package Algorithms;
 
+import dataStructures.graph.Graph;
 import dataStructures.solution.Solution;
 
 /**
@@ -12,15 +13,16 @@ public interface Algorithm {
      *
      * @return the resulting Solution generated
      */
-    Solution run();
+    Solution run(Graph graph);
 
     /**
      * Run the method with a given timeLimit
      *
+     * @param graph     The graph
      * @param timeLimit The timeLimit
      * @return The resulting Solution generated
      */
-    Solution run(Long timeLimit);
+    Solution run(Graph graph,Long timeLimit);
 
     String getId();
 

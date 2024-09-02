@@ -11,7 +11,10 @@ upload_jar: build
     scp -B -i ${PRIVATE_KEY_PATH} ./target/jar-with-dependencies.jar ${USER}@${ADDRESS}:${REMOTE_PATH}Experiments/{{current-time}}/{{current-time}}.jar
 
 run INSTANCES_FOLDER: upload_jar
-    ssh ${USER}@${ADDRESS} -i ${PRIVATE_KEY_PATH} 'cd Experiments/{{current-time}};{{jar-command}} ../../Instances/{{INSTANCES_FOLDER}} > logs.txt 2>&1'
+    ssh ${USER}@${ADDRESS} -i ${PRIVATE_KEY_PATH} 'cd Experiments/{{current-time}};{{jar-command}} experiment ../../Instances/{{INSTANCES_FOLDER}} > logs.txt 2>&1'
+
+upload_irace: upload_jar
+    ssh ${USER}@${ADDRESS} -i ${PRIVATE_KEY_PATH} 'cd Experiments/{{current-time}};{{jar-command}} irace ../../Instances/{{INSTANCES_FOLDER}} > logs.txt 2>&1'
 
 upload_instances:
     scp -B -i ${PRIVATE_KEY_PATH} -r ./Instances ${USER}@${ADDRESS}:${REMOTE_PATH}

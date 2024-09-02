@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  * This class exports the given data to a CSV file
- * TODO modify as needed.
+ * TODO modify as needed. It is ready to use anyway
  */
 public class DataOutput {
     private final String filename;
@@ -26,7 +26,7 @@ public class DataOutput {
         this.filename = filename.replace(" ","_");
         this.lock = new ReentrantLock();
 
-        File file = new File(filename + ".csv");
+        File file = new File(this.filename + ".csv");
         lock.lock();
         try {
             // create FileWriter object with file as parameter

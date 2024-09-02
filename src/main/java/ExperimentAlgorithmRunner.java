@@ -16,6 +16,7 @@ public class ExperimentAlgorithmRunner implements Runnable {
 
 
     private final File instance;
+    private final String instancePath;
     private final Algorithm algorithm;
 
     private final DataOutput dataOutput;
@@ -24,6 +25,7 @@ public class ExperimentAlgorithmRunner implements Runnable {
         this.instance = new File(filePath);
         this.algorithm = algorithmToExecute;
         this.dataOutput = dataOutput;
+        this.instancePath = filePath;
     }
 
     static Logger logger = Logger.getLogger("Instance");
@@ -38,11 +40,12 @@ public class ExperimentAlgorithmRunner implements Runnable {
         }
         long startTime = System.nanoTime();
         try {
-            Solution s = algorithm.run();
+            Solution s = algorithm.run(g);
             float time = TimeUnit.NANOSECONDS.toSeconds(System.nanoTime() - startTime);
-            //The data to export to CSV
+            //The data to export to CSV after the execution is over
             List<String> dataToExport = new LinkedList<>();
             dataToExport.add(algorithm.getId());
+            dataToExport.add(instancePath);
             dataToExport.add(String.valueOf(s.evaluateObjectiveFunction()));
             dataToExport.add(String.valueOf(time));
 
